@@ -47,6 +47,9 @@ try {
     }
     $products = http_fixture($ports[0], '/api/products/list.php?pageSize=50');
     ensure_http($products['status'] === 200 && count($products['data']['products'] ?? []) === 13, 'HTTP catalog');
+    ensure_http($products['cookie'] === '', 'Public catalog must not create a session');
+    $anonymous = http_fixture($ports[0], '/api/auth/session.php');
+    ensure_http($anonymous['cookie'] === '' && $anonymous['data']['user']['authenticated'] === false && $anonymous['data']['admin']['authenticated'] === false, 'Anonymous session status without creating a cookie');
     $email = 'qa-http-' . bin2hex(random_bytes(8)) . '@example.com';
     $password = bin2hex(random_bytes(16));
     $registered = http_fixture($ports[0], '/api/user/register.php', ['username' => $email, 'password' => $password, 'confirmPassword' => $password]);
@@ -56,12 +59,26 @@ try {
     $login = http_fixture($ports[0], '/api/auth/login.php', ['username' => $email, 'password' => $password], $registered['cookie']);
     ensure_http($login['status'] === 200 && $login['data']['role'] === 'user', 'HTTP login');
     $cookie = $login['cookie'];
+    $combined = http_fixture($ports[1], '/api/auth/session.php', null, $cookie);
+    ensure_http($combined['data']['user']['authenticated'] === true && $combined['data']['admin']['authenticated'] === false, 'Combined user session');
     $me = http_fixture($ports[1], '/api/user/me.php', null, $cookie);
     ensure_http($me['data']['authenticated'] === true, 'Session survives a different PHP instance');
     ensure_http(http_fixture($ports[1], '/api/admin/products/list.php', null, $cookie)['status'] === 401, 'User denied admin API');
     $order = http_fixture($ports[1], '/api/orders/create.php', ['customer' => ['name' => 'QA HTTP', 'phone' => '0900000000', 'address' => 'QA fixture'], 'items' => [['id' => $rows[0]['id'], 'quantity' => 1]]], $cookie);
     ensure_http($order['status'] === 201 && !empty($order['data']['orderId']), 'HTTP order creation');
     ensure_http(count(http_fixture($ports[0], '/api/orders/history.php', null, $cookie)['data']['orders'] ?? []) === 1, 'HTTP order history');
+    firebase_store_transaction(static function (array &$store) use ($login): void {
+        $key = 'u_' . $login['data']['user']['id'];
+        $store['users'][$key]['role'] = 'admin';
+        $store['users'][$key]['auth_version']++;
+    });
+    $adminLogin = http_fixture($ports[0], '/api/auth/login.php', ['username' => $email, 'password' => $password], $cookie);
+    ensure_http($adminLogin['status'] === 200 && $adminLogin['data']['role'] === 'admin', 'Admin fixture login');
+    $cookie = $adminLogin['cookie'];
+    $combined = http_fixture($ports[1], '/api/auth/session.php', null, $cookie);
+    ensure_http($combined['data']['admin']['authenticated'] === true && $combined['data']['user']['authenticated'] === false, 'Combined admin session');
+    ensure_http(http_fixture($ports[1], '/api/admin/products/list.php', null, $cookie)['status'] === 200, 'Admin API access');
+    ensure_http(http_fixture($ports[1], '/api/orders/create.php', [], $cookie)['status'] === 401, 'Admin cannot place a user order');
     http_fixture($ports[0], '/index.php?p=logout', null, $cookie);
     ensure_http(http_fixture($ports[1], '/api/user/me.php', null, $cookie)['data']['authenticated'] === false, 'HTTP logout invalidates session');
     foreach (['/config/app.php', '/tools/seed-firebase.php', '/firebase/catalog.json', '/.env.firebase.local.json'] as $route) ensure_http(http_fixture($ports[0], $route)['status'] === 404, 'Private route exposed');

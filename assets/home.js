@@ -1,4 +1,4 @@
-﻿// Ghi chú: File script xử lý tương tác giao diện và gọi API.
+// Ghi chú: File script xử lý tương tác giao diện và gọi API.
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.querySelector(".nav");
 const authLink = document.getElementById("authLink");
@@ -16,10 +16,7 @@ async function apiRequest(url) {
 
 async function bindAuthLinks() {
   try {
-    const [adminRes, userRes] = await Promise.all([
-      apiRequest("./api/admin/me.php"),
-      apiRequest("./api/user/me.php")
-    ]);
+    const { admin: adminRes, user: userRes } = await apiRequest("./api/auth/session.php");
 
     if (adminRes.authenticated) {
       authLink?.classList.remove("hidden");

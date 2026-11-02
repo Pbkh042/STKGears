@@ -3,7 +3,7 @@
 declare(strict_types=1);
 // Ghi chú: File xử lý logic/trang tương ứng của module.
 
-require_once __DIR__ . '/../common.php';
+require_once __DIR__ . '/../response.php';
 require_once __DIR__ . '/../../services/product_service.php';
 
 try {

@@ -224,7 +224,7 @@ if ($product) {
 
   <div id="toast" class="toast" aria-live="polite"></div>
   <script src="./assets/theme.js?v=20261001_1840"></script>
-  <script src="./assets/product.js?v=20261019"></script>
+  <script src="./assets/product.js?v=20261102_1"></script>
 </body>
 </html>
 

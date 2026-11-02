@@ -19,6 +19,7 @@ $apiRoutes = [
     '/api/admin/products/list.php',
     '/api/admin/products/update.php',
     '/api/auth/login.php',
+    '/api/auth/session.php',
     '/api/orders/create.php',
     '/api/orders/detail.php',
     '/api/orders/history.php',
@@ -49,7 +50,7 @@ if (!$isApi && $path !== '/' && $path !== '/index.php') {
 // PHP responses can contain account/order information. Do not cache them.
 header('Cache-Control: private, no-store');
 
-$sessionOnlyRoutes = ['/api/admin/me.php', '/api/user/me.php', '/api/admin/logout.php'];
+$sessionOnlyRoutes = ['/api/admin/me.php', '/api/user/me.php', '/api/admin/logout.php', '/api/auth/session.php'];
 if ($isApi && !database_is_configured() && !in_array($path, $sessionOnlyRoutes, true)) {
     http_response_code(503);
     header('Content-Type: application/json; charset=utf-8');

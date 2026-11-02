@@ -8,8 +8,13 @@ final class FirebaseServiceException extends Exception {}
 function firebase_http(string $url, string $method = 'GET', ?string $body = null, array $headers = []): array
 {
     $responseHeaders = [];
-    $curl = curl_init($url);
+    // Keep connection/TLS reuse within this PHP request, with fresh options
+    // and headers for each call (Database, Auth and OAuth use different hosts).
+    static $curl = null;
+    $curl ??= curl_init();
+    curl_reset($curl);
     curl_setopt_array($curl, [
+        CURLOPT_URL => $url,
         CURLOPT_CUSTOMREQUEST => $method,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CONNECTTIMEOUT => 5,
@@ -24,7 +29,6 @@ function firebase_http(string $url, string $method = 'GET', ?string $body = null
     if ($body !== null) curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
     $response = curl_exec($curl);
     $status = (int)curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
-    curl_close($curl);
     if ($response === false || $status === 0) throw new FirebaseServiceException('Firebase is temporarily unavailable.');
     return ['status' => $status, 'data' => json_decode($response, true), 'headers' => $responseHeaders];
 }

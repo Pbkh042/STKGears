@@ -5,6 +5,11 @@ FrankenPHP. Only /app/public is an HTTP document root. Firebase Authentication
 handles email/password accounts; Realtime Database stores products, roles,
 orders and shared PHP sessions. MySQL remains available for local XAMPP.
 
+`vercel.json` runs the server in Singapore (`sin1`) near Realtime Database.
+Public catalog requests do not create database sessions. The storefront fetches
+products and a combined account-status endpoint concurrently; protected APIs
+continue to validate session identity and role through the database.
+
 ## Deployment process
 
 1. Create a Firebase project and web app. Enable Authentication's Email/Password

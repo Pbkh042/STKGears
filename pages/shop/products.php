@@ -113,7 +113,7 @@
 
   <div id="toast" class="toast" aria-live="polite"></div>
   <script src="./assets/theme.js?v=20261001_1840"></script>
-  <script src="./assets/app.js?v=20261019_11"></script>
+  <script src="./assets/app.js?v=20261102_1"></script>
 </body>
 </html>
 

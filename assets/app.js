@@ -477,10 +477,7 @@ async function submitOrder(event) {
 
 async function fetchSessionStatus() {
   try {
-    const [adminRes, userRes] = await Promise.all([
-      apiRequest("./api/admin/me.php"),
-      apiRequest("./api/user/me.php")
-    ]);
+    const { admin: adminRes, user: userRes } = await apiRequest("./api/auth/session.php");
 
     isAdmin = Boolean(adminRes.authenticated);
     isUserLoggedIn = Boolean(userRes.authenticated);
@@ -590,6 +587,7 @@ async function init() {
   restoreFilterState();
   renderCart();
   bootEvents();
+  const productsReady = fetchProducts();
   await fetchSessionStatus();
   const params = new URLSearchParams(window.location.search);
   if (params.get("checkout") === "1") {
@@ -598,7 +596,7 @@ async function init() {
     params.delete("checkout");
     window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}${window.location.hash}`);
   }
-  await fetchProducts();
+  await productsReady;
 }
 // Hàm khởi tạo màn hình: bind event, auth state, dữ liệu sản phẩm.
 

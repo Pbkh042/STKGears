@@ -1,4 +1,4 @@
-﻿// Ghi chú: File script xử lý tương tác giao diện và gọi API.
+// Ghi chú: File script xử lý tương tác giao diện và gọi API.
 const addButton = document.getElementById("addToCartBtn");
 const buyNowButton = document.getElementById("buyNowBtn");
 let purchasePending = false;
@@ -95,14 +95,12 @@ function showToast(message) {
 
 async function fetchUserState() {
   try {
-    const [userRes, adminRes] = await Promise.all([
-      fetch("./api/user/me.php", { credentials: "same-origin" }),
-      fetch("./api/admin/me.php", { credentials: "same-origin" })
-    ]);
-    const userData = await userRes.json().catch(() => ({ ok: false, authenticated: false }));
-    const adminData = await adminRes.json().catch(() => ({ ok: false, authenticated: false }));
-    isUserLoggedIn = Boolean(userData.ok && userData.authenticated);
-    isAdminLoggedIn = Boolean(adminData.ok && adminData.authenticated);
+    const response = await fetch("./api/auth/session.php", { credentials: "same-origin" });
+    const data = await response.json();
+    if (!response.ok || !data.ok) throw new Error("Cannot load session");
+    const { user: userData, admin: adminData } = data;
+    isUserLoggedIn = Boolean(userData.authenticated);
+    isAdminLoggedIn = Boolean(adminData.authenticated);
     const userId = Number(userData.user?.id || 0);
     currentUserId = isUserLoggedIn && !isAdminLoggedIn && userId > 0 ? userId : null;
   } catch {
