@@ -22,13 +22,19 @@ function app_start_session(): void
         'samesite' => 'Lax',
     ]);
 
-    // A separate connection keeps session locking independent of order
-    // transactions. Every Vercel instance reads the same MySQL session table.
-    if (APP_ENV === 'production' && database_is_configured()) {
+    // Every instance shares sessions through the selected database provider.
+    if (data_backend() === 'firebase' && database_is_configured()) {
+        require_once __DIR__ . '/../core/firebase_session.php';
+        session_set_save_handler(new FirebaseSessionHandler($lifetime), true);
+    } elseif (APP_ENV === 'production' && database_is_configured()) {
         session_set_save_handler(new MysqlSessionHandler(new_database_connection(), $lifetime), true);
     }
 
     if (!session_start()) {
         throw new RuntimeException('Cannot start session.');
+    }
+    if (data_backend() === 'firebase' && database_is_configured()) {
+        require_once __DIR__ . '/../services/auth_service.php';
+        firebase_validate_session();
     }
 }

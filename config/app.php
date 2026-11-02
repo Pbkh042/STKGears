@@ -18,8 +18,18 @@ define('DB_NAME', app_env('DB_NAME', 'stkgear'));
 define('DB_USER', app_env('DB_USER', 'root'));
 define('DB_PASS', app_env('DB_PASS'));
 
+function data_backend(): string
+{
+    return app_env('DATA_BACKEND', 'mysql');
+}
+
 function database_is_configured(): bool
 {
+    if (data_backend() === 'firebase') {
+        return app_env('FIREBASE_DATABASE_URL') !== ''
+            && app_env('FIREBASE_WEB_API_KEY') !== ''
+            && (app_env('FIREBASE_SERVICE_ACCOUNT_JSON') !== '' || app_env('FIREBASE_DATABASE_SECRET') !== '');
+    }
     if (APP_ENV !== 'production') {
         return true;
     }

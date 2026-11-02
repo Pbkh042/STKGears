@@ -1,4 +1,4 @@
-﻿// Ghi chú: File script xử lý tương tác giao diện và gọi API.
+// Ghi chú: File script xử lý tương tác giao diện và gọi API.
 const VND = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" });
 const CART_STORAGE_PREFIX = "stkGearsCart:user:";
 const FILTER_STORAGE_KEY = "stkGearsFilters";
@@ -169,7 +169,7 @@ async function fetchProducts() {
     renderCart();
   } catch (error) {
     if (dom.productGrid) {
-      dom.productGrid.innerHTML = "<p>Không tải được danh sách sản phẩm. Kiểm tra cấu hình MySQL.</p>";
+      dom.productGrid.innerHTML = "<p>Không tải được danh sách sản phẩm. Vui lòng thử lại sau.</p>";
     }
     showToast(error.message);
   }

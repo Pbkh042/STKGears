@@ -72,7 +72,7 @@ try {
 } catch (Throwable $error) {
     ob_end_clean();
     error_log('STKGears request failed: ' . get_class($error));
-    http_response_code($error instanceof PDOException || !database_is_configured() ? 503 : 500);
+    http_response_code($error instanceof PDOException || $error instanceof FirebaseServiceException || !database_is_configured() ? 503 : 500);
     if ($isApi) {
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode(['ok' => false, 'message' => 'Dịch vụ tạm thời chưa sẵn sàng.'], JSON_UNESCAPED_UNICODE);

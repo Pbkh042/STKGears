@@ -5,6 +5,7 @@ require_once __DIR__ . '/../../config/auth.php';
 
 $tab = (string)($_GET['tab'] ?? 'login');
 $initialTab = $tab === 'signup' ? 'signup' : 'login';
+$firebaseLogin = data_backend() === 'firebase';
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -41,8 +42,8 @@ $initialTab = $tab === 'signup' ? 'signup' : 'login';
             <p class="auth-eyebrow">STK GEARS</p>
             <h1>Chào mừng trở lại</h1>
             <p class="auth-copy">Đăng nhập để tiếp tục. Hệ thống sẽ tự đưa bạn đến đúng giao diện theo quyền tài khoản.</p>
-            <label class="sr-only" for="loginUsername">Tên đăng nhập</label>
-            <input id="loginUsername" name="username" autocomplete="username" placeholder="Tên đăng nhập" required>
+            <label class="sr-only" for="loginUsername"><?= $firebaseLogin ? 'Email' : 'Tên đăng nhập' ?></label>
+            <input id="loginUsername" name="username" type="<?= $firebaseLogin ? 'email' : 'text' ?>" autocomplete="username" placeholder="<?= $firebaseLogin ? 'Email của bạn' : 'Tên đăng nhập' ?>" required>
             <label class="sr-only" for="loginPassword">Mật khẩu</label>
             <div class="auth-password-field">
               <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Mật khẩu" required>
@@ -58,8 +59,12 @@ $initialTab = $tab === 'signup' ? 'signup' : 'login';
             <p class="auth-eyebrow">TÀI KHOẢN MỚI</p>
             <h1>Tạo tài khoản</h1>
             <p class="auth-copy">Tài khoản đăng ký mới có quyền mua hàng và quản lý đơn hàng cá nhân.</p>
-            <label class="sr-only" for="signupUsername">Tên đăng nhập mới</label>
+            <label class="sr-only" for="signupUsername"><?= $firebaseLogin ? 'Email đăng ký' : 'Tên đăng nhập mới' ?></label>
+            <?php if ($firebaseLogin): ?>
+            <input id="signupUsername" name="username" type="email" autocomplete="username" placeholder="Email đăng ký" required maxlength="254">
+            <?php else: ?>
             <input id="signupUsername" name="username" autocomplete="username" placeholder="Tên đăng nhập mới" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_.]+">
+            <?php endif; ?>
             <label class="sr-only" for="signupPassword">Mật khẩu mới</label>
             <div class="auth-password-field">
               <input id="signupPassword" name="password" type="password" autocomplete="new-password" placeholder="Mật khẩu mới (ít nhất 8 ký tự)" required minlength="8">

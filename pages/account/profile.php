@@ -3,7 +3,7 @@ declare(strict_types=1);
 // Ghi chú: Trang hồ sơ chung cho user/admin kèm thống kê nhanh.
 
 require_once __DIR__ . '/../../config/auth.php';
-require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../services/order_service.php';
 require_once __DIR__ . '/../../core/view.php';
 
 require_any_page();
@@ -12,23 +12,7 @@ $isAdmin = is_admin_logged_in();
 $role = $isAdmin ? 'admin' : 'user';
 $username = $isAdmin ? current_admin_name() : current_user_name();
 
-$stats = [
-  'valid_orders' => 0,
-  'products' => 0,
-  'total_stock' => 0,
-  'my_orders' => 0,
-];
-
-$pdo = db();
-if ($isAdmin) {
-  $stats['valid_orders'] = (int)$pdo->query("SELECT COUNT(*) FROM orders WHERE customer_name <> '' AND customer_phone <> '' AND customer_address <> ''")->fetchColumn();
-  $stats['products'] = (int)$pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
-  $stats['total_stock'] = (int)$pdo->query('SELECT COALESCE(SUM(stock),0) FROM products')->fetchColumn();
-} else {
-  $stmt = $pdo->prepare('SELECT COUNT(*) FROM orders WHERE user_id = :uid');
-  $stmt->execute(['uid' => current_user_id()]);
-  $stats['my_orders'] = (int)$stmt->fetchColumn();
-}
+$stats = account_statistics($isAdmin, current_user_id());
 ?>
 <!DOCTYPE html>
 <html lang="vi">
