@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+.vercel
+.idea
+.vscode
+node_modules
+vendor
+sql
+tools
+*.log
+*.pem
+*.key
+*.zip
+*.txt
