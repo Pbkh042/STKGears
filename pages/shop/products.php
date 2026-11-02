@@ -32,7 +32,7 @@
       <a id="authLink" class="ghost" href="./index.php?p=login">Đăng nhập</a>
       <a id="adminPanelLink" class="ghost hidden" href="./index.php?p=admin-products">Quản trị</a>
       <button id="openCartBtn" class="cart-btn" aria-label="Mở giỏ hàng">
-        Giỏ hàng <span id="cartCount">0</span>
+        Giỏ hàng <span id="cartCount" hidden>0</span>
       </button>
     </div>
   </header>
@@ -114,7 +114,7 @@
   <div id="toast" class="toast" aria-live="polite"></div>
   <script src="./assets/theme.js?v=20261102_mobile1"></script>
   <script src="./assets/mobile.js?v=20261102_mobile1"></script>
-  <script src="./assets/app.js?v=20261102_1"></script>
+  <script src="./assets/app.js?v=20261102_cart1"></script>
 </body>
 </html>
 

@@ -242,7 +242,11 @@ function cartSubtotal() {
 // Hàm tính tổng tiền tạm tính của giỏ hàng.
 
 function syncCartSummary() {
-  if (dom.cartCount) dom.cartCount.textContent = String(cartTotalQuantity());
+  const quantity = cartTotalQuantity();
+  if (dom.cartCount) {
+    dom.cartCount.textContent = String(quantity);
+    dom.cartCount.hidden = quantity === 0;
+  }
   if (dom.cartSubtotal) dom.cartSubtotal.textContent = VND.format(cartSubtotal());
 }
 // Hàm đồng bộ số lượng và tổng tiền ra giao diện giỏ hàng.
