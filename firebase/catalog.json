@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "sku": "DNT0001",
+        "sku": "STK0001",
         "slug": "pmo-p75",
         "name": "Switch outemu lime v2",
         "category": "accessory_keycap",
@@ -20,7 +20,7 @@
     },
     {
         "id": 2,
-        "sku": "DNT0002",
+        "sku": "STK0002",
         "slug": "furycube-matcha",
         "name": "Bộ keycap Matcha XDA Nhật",
         "category": "accessory_keycap",
@@ -39,7 +39,7 @@
     },
     {
         "id": 3,
-        "sku": "DNT0003",
+        "sku": "STK0003",
         "slug": "mchose-k7-ultra",
         "name": "RAINY75 - Bàn phím cơ khung nhôm",
         "category": "keyboard_mech",
@@ -58,7 +58,7 @@
     },
     {
         "id": 4,
-        "sku": "DNT0004",
+        "sku": "STK0004",
         "slug": "deskmat-control-xl",
         "name": "Bàn phím cơ công thái học Record Alice 3 mode",
         "category": "keyboard_mech",
@@ -77,7 +77,7 @@
     },
     {
         "id": 5,
-        "sku": "DNT0005",
+        "sku": "STK0005",
         "slug": "qa-product-1778903711",
         "name": "Mchose G75 v2 - Bàn phím cơ 75%",
         "category": "keyboard_mech",
@@ -96,7 +96,7 @@
     },
     {
         "id": 11,
-        "sku": "DNT0011",
+        "sku": "STK0011",
         "slug": "qa-runtime-keyboard-20260516",
         "name": "NUT108 - Bàn phím cơ Fullsize",
         "category": "keyboard_mech",
@@ -115,7 +115,7 @@
     },
     {
         "id": 12,
-        "sku": "DNT0012",
+        "sku": "STK0012",
         "slug": "switch-kailh-mx-bcp-linear-clacky",
         "name": "Switch Kailh MX BCP - Linear Clacky",
         "category": "accessory_switch",
@@ -134,7 +134,7 @@
     },
     {
         "id": 13,
-        "sku": "DNT0013",
+        "sku": "STK0013",
         "slug": "deskmat-cao-c-p-dps",
         "name": "Deskmat cao cấp DPS",
         "category": "pad_mouse",
@@ -153,7 +153,7 @@
     },
     {
         "id": 15,
-        "sku": "DNT0014",
+        "sku": "STK0014",
         "slug": "deskmat-fbb",
         "name": "Deskmat FBB",
         "category": "pad_mouse",
@@ -172,7 +172,7 @@
     },
     {
         "id": 16,
-        "sku": "DNT0016",
+        "sku": "STK0016",
         "slug": "mchose-ace-68-air",
         "name": "MCHOSE Ace 68 Air",
         "category": "keyboard_hall",
@@ -191,7 +191,7 @@
     },
     {
         "id": 17,
-        "sku": "DNT0017",
+        "sku": "STK0017",
         "slug": "mchose-jet-75",
         "name": "MCHOSE Jet 75",
         "category": "keyboard_hall",
@@ -210,7 +210,7 @@
     },
     {
         "id": 18,
-        "sku": "DNT0018",
+        "sku": "STK0018",
         "slug": "chu-t-mchose-k7-ultra-wireless",
         "name": "Chuột Mchose K7 Ultra Wireless",
         "category": "mouse_wireless",
@@ -229,7 +229,7 @@
     },
     {
         "id": 19,
-        "sku": "DNT0019",
+        "sku": "STK0019",
         "slug": "chu-t-wlmouse-beast-x-max-wireless-8khz",
         "name": "Chuột WLMouse Beast X Max Wireless 8KHz",
         "category": "mouse_wireless",
