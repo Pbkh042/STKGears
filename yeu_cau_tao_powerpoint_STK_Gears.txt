@@ -1,0 +1,281 @@
+YÊU CẦU TẠO POWERPOINT BÁO CÁO DỰ ÁN STK GEARS
+
+Hãy tạo một file PowerPoint bằng tiếng Việt dựa hoàn toàn trên nội dung được cung cấp trong yêu cầu này. Đây là bài thuyết trình báo cáo Dự án 2 về website thương mại điện tử STK Gears.
+
+1. YÊU CẦU CHUNG
+
+- Số lượng: 18 slide.
+- Tỷ lệ trình chiếu: 16:9.
+- Ngôn ngữ: tiếng Việt.
+- Đối tượng nghe: giảng viên và sinh viên trong buổi báo cáo đồ án.
+- Phong cách nội dung: ngắn gọn, rõ ràng, tập trung vào website STK Gears và phần kỹ thuật đã triển khai.
+- Mỗi slide sử dụng khoảng 3–6 bullet point ngắn.
+- Không viết các đoạn văn dài trên slide.
+- Không tạo slide “Cảm ơn”, “Q&A”, “Kết thúc” hoặc outro.
+- Không thêm chức năng, công nghệ, kết quả, số liệu hay quy trình không có trong nội dung bên dưới.
+- Không tự tạo số liệu doanh thu, số lượng khách hàng, hiệu năng, tỷ lệ tăng trưởng hoặc kết quả khảo sát.
+- Không biến bài thuyết trình thành nội dung quảng cáo sản phẩm.
+- Không trình bày các chức năng tương lai như thể chúng đã được triển khai.
+
+2. ĐỊNH HƯỚNG THIẾT KẾ
+
+- Phong cách hiện đại, công nghệ, phù hợp chủ đề bàn phím cơ và thiết bị setup.
+- Màu chủ đạo: xanh navy đậm, trắng và xanh cyan hoặc xanh lá làm màu nhấn.
+- Sử dụng font sans-serif dễ đọc, ưu tiên Be Vietnam Pro hoặc font hỗ trợ tiếng Việt tương đương.
+- Tiêu đề lớn, nội dung ít chữ, khoảng trắng hợp lý.
+- Hình ảnh minh họa tập trung vào bàn phím cơ, chuột, switch, keycap, deskmat và giao diện website.
+- Có thể sử dụng logo STK Gears từ material được cung cấp.
+- Ưu tiên sơ đồ, timeline, thẻ chức năng, mockup giao diện và ERD thay cho slide chỉ có chữ.
+- Giữ cùng một hệ thống màu sắc, font chữ, icon và khoảng cách trên toàn bộ bài.
+- Không dùng hình minh họa không liên quan đến sản phẩm hoặc chủ đề website.
+
+3. THÔNG TIN DỰ ÁN ĐƯỢC PHÉP SỬ DỤNG
+
+- Tên dự án: STK Gears.
+- Loại dự án: website thương mại điện tử mini.
+- Nội dung kinh doanh: bàn phím cơ, bàn phím Hall Effect, chuột, pad chuột, switch, keycap và phụ kiện setup.
+- Website tập trung vào luồng mua hàng thực tế: đăng ký, đăng nhập, tìm sản phẩm, xem chi tiết, thêm giỏ hàng, checkout, tạo đơn và theo dõi đơn hàng.
+- Hệ thống có hai nhóm người dùng chính: khách hàng và quản trị viên.
+- Khu vực hiển thị của cửa hàng: Ninh Bình, Việt Nam.
+- Công nghệ frontend: HTML, CSS và JavaScript.
+- Công nghệ backend: PHP 8.
+- Cơ sở dữ liệu: MySQL/MariaDB, InnoDB, utf8_unicode_ci.
+- Mã nguồn được tổ chức theo các nhóm: api, assets, config, core, pages, services và sql.
+- index.php là entry-point và router trung tâm của các trang.
+- Hệ thống sử dụng API JSON cho xác thực, sản phẩm, đơn hàng và tác vụ quản trị.
+
+4. CẤU TRÚC NỘI DUNG 18 SLIDE
+
+SLIDE 1 — TRANG BÌA
+
+Tiêu đề: STK Gears – Website thương mại điện tử thiết bị setup
+
+Nội dung:
+- Báo cáo Dự án 2.
+- Chừa vị trí điền họ tên sinh viên.
+- Chừa vị trí điền mã số sinh viên và lớp.
+- Chừa vị trí điền giảng viên hướng dẫn.
+
+Thiết kế:
+- Dùng ảnh bàn phím cơ hoặc góc setup làm hình ảnh chính.
+- Logo STK Gears đặt ở vị trí dễ nhận biết.
+- Không đặt quá nhiều chữ trên trang bìa.
+
+SLIDE 2 — GIỚI THIỆU STK GEARS
+
+Nội dung:
+- STK Gears là website thương mại điện tử mini về thiết bị gõ phím và phụ kiện setup.
+- Danh mục gồm bàn phím cơ, bàn phím Hall Effect, chuột, pad chuột, switch và keycap.
+- Website cung cấp thông tin sản phẩm rõ ràng để người dùng dễ tìm kiếm và lựa chọn.
+- Hệ thống hỗ trợ cả hoạt động mua hàng và quản trị cửa hàng.
+- Thông tin thương hiệu trên website đặt tại Ninh Bình, Việt Nam.
+
+SLIDE 3 — BÀI TOÁN CỦA DỰ ÁN
+
+Nội dung:
+- Người mua cần xem tập trung giá, SKU, mô tả, thông số, màu sắc và tồn kho.
+- Người mua cần tìm kiếm và lọc sản phẩm theo nhu cầu.
+- Quy trình từ giỏ hàng đến tạo đơn cần kiểm tra dữ liệu và số lượng tồn.
+- Cửa hàng cần quản lý sản phẩm và trạng thái đơn hàng trong một hệ thống.
+- Dữ liệu giữa đơn hàng, chi tiết đơn và tồn kho cần được giữ nhất quán.
+
+Thiết kế:
+- Trình bày theo bố cục “Nhu cầu khách hàng” và “Nhu cầu quản trị”.
+
+SLIDE 4 — MỤC TIÊU XÂY DỰNG
+
+Nội dung:
+- Xây dựng luồng mua hàng từ đăng nhập đến theo dõi đơn.
+- Cung cấp danh mục sản phẩm có tìm kiếm, lọc và phân trang.
+- Hỗ trợ quản trị viên thực hiện CRUD sản phẩm.
+- Hỗ trợ quản trị viên tìm kiếm và xử lý đơn hàng.
+- Kiểm soát truy cập và bảo vệ tính nhất quán của tồn kho.
+
+SLIDE 5 — PHẠM VI DỰ ÁN
+
+Nội dung:
+- Trang chủ giới thiệu cửa hàng và nhóm sản phẩm.
+- Khu vực danh sách và chi tiết sản phẩm.
+- Giỏ hàng và checkout cho người dùng đã đăng nhập.
+- Lịch sử đơn hàng, chi tiết đơn, hồ sơ và đổi mật khẩu.
+- Khu vực quản trị sản phẩm và đơn hàng.
+- Cơ sở dữ liệu MySQL chứa tài khoản, sản phẩm và dữ liệu đơn hàng.
+
+SLIDE 6 — ĐỐI TƯỢNG SỬ DỤNG
+
+Nội dung:
+- Khách chưa đăng nhập có thể xem và tìm kiếm sản phẩm.
+- Người dùng có tài khoản có thể checkout và xem đơn hàng của mình.
+- Quản trị viên có quyền quản lý sản phẩm và xử lý đơn hàng.
+- User và admin sử dụng vùng chức năng và kiểm tra quyền riêng.
+
+Thiết kế:
+- Dùng sơ đồ ba vai trò: Khách truy cập → Người dùng → Quản trị viên.
+- Chỉ thể hiện đúng các quyền đã nêu, không bổ sung vai trò khác.
+
+SLIDE 7 — NHÓM SẢN PHẨM
+
+Nội dung:
+- Bàn phím cơ.
+- Bàn phím Hall Effect.
+- Chuột có dây và chuột không dây.
+- Switch và keycap.
+- Pad chuột và deskmat.
+- Mỗi sản phẩm có SKU, thương hiệu, giá, tồn kho, mô tả và thông số kỹ thuật.
+
+Thiết kế:
+- Dùng ảnh sản phẩm từ material hoặc ảnh minh họa đúng nhóm sản phẩm.
+- Trình bày dưới dạng các thẻ danh mục.
+
+SLIDE 8 — HÀNH TRÌNH MUA HÀNG
+
+Nội dung:
+- Đăng ký hoặc đăng nhập tài khoản.
+- Tìm kiếm, lọc và xem danh sách sản phẩm.
+- Mở trang chi tiết để xem ảnh, mô tả, thông số và tồn kho.
+- Chọn màu, số lượng và thêm sản phẩm vào giỏ.
+- Nhập thông tin giao hàng và thực hiện checkout.
+- Theo dõi lịch sử và chi tiết đơn hàng.
+
+Thiết kế:
+- Trình bày bằng timeline ngang gồm sáu bước.
+
+SLIDE 9 — DANH SÁCH VÀ CHI TIẾT SẢN PHẨM
+
+Nội dung:
+- Tìm kiếm sản phẩm trên toàn bộ dữ liệu sản phẩm.
+- Lọc sản phẩm theo danh mục.
+- Phân trang với 10 sản phẩm trên một trang.
+- Trang chi tiết hiển thị ảnh chính và gallery ảnh phụ.
+- Hiển thị mô tả, thông số kỹ thuật, SKU, giá và tồn kho.
+- Hỗ trợ lựa chọn màu khi sản phẩm có nhiều tùy chọn.
+
+SLIDE 10 — GIỎ HÀNG VÀ CHECKOUT
+
+Nội dung:
+- Người dùng chọn sản phẩm, màu và số lượng trước khi đặt hàng.
+- Hệ thống không cho checkout khi chưa đăng nhập user.
+- Checkout yêu cầu họ tên, số điện thoại và địa chỉ nhận hàng.
+- Ghi chú đơn hàng là thông tin không bắt buộc.
+- Backend kiểm tra cấu trúc giỏ hàng và dữ liệu người nhận.
+- Đơn hợp lệ được lưu vào cơ sở dữ liệu và trừ tồn kho.
+
+SLIDE 11 — XỬ LÝ ĐƠN HÀNG VÀ TỒN KHO
+
+Nội dung:
+- Chuẩn hóa danh sách sản phẩm trong giỏ trước khi xử lý.
+- Bắt đầu database transaction khi tạo đơn.
+- Đọc và khóa từng sản phẩm bằng SELECT ... FOR UPDATE.
+- Kiểm tra sản phẩm còn tồn tại và số lượng không vượt tồn kho.
+- Tạo orders, order_items và cập nhật số lượng products.
+- Commit khi thành công hoặc rollback nếu có lỗi.
+
+Thiết kế:
+- Dùng flowchart thể hiện luồng kiểm tra → khóa hàng → tạo đơn → trừ kho → commit/rollback.
+
+SLIDE 12 — VÒNG ĐỜI TRẠNG THÁI ĐƠN
+
+Nội dung:
+- Đang xét duyệt đơn hàng.
+- Đã đặt hàng.
+- Đang vận chuyển.
+- Đã vận chuyển.
+- Đơn hàng bị từ chối.
+- Đã hủy đơn hàng.
+
+Thiết kế:
+- Dùng sơ đồ trạng thái hoặc timeline.
+- Không tự tạo thêm trạng thái thanh toán hoặc giao hàng khác.
+
+SLIDE 13 — CHỨC NĂNG QUẢN TRỊ SẢN PHẨM
+
+Nội dung:
+- Xem danh sách sản phẩm trong trang quản trị.
+- Tìm theo SKU, tên, danh mục hoặc thương hiệu.
+- Phân trang danh sách sản phẩm.
+- Thêm và chỉnh sửa thông tin sản phẩm.
+- Quản lý mô tả, thông số, giá, tồn kho, ảnh và màu sắc.
+- Xóa sản phẩm sau bước xác nhận.
+
+SLIDE 14 — CHỨC NĂNG QUẢN TRỊ ĐƠN HÀNG
+
+Nội dung:
+- Xem danh sách đơn hàng theo thứ tự mới nhất.
+- Tìm kiếm theo mã đơn, tên, số điện thoại hoặc địa chỉ.
+- Hỗ trợ tìm trực tiếp theo ID khi nhập dữ liệu dạng số.
+- Phân trang 10 đơn hàng trên một trang.
+- Xem thông tin người nhận và danh sách sản phẩm trong đơn.
+- Cập nhật trạng thái hoặc xóa đơn hàng.
+
+SLIDE 15 — KIẾN TRÚC MÃ NGUỒN
+
+Nội dung:
+- index.php là router trung tâm và entry-point của giao diện.
+- pages chứa giao diện theo các nhóm shop, auth, user, account và admin.
+- services chứa nghiệp vụ xác thực, sản phẩm và đơn hàng.
+- api chứa các endpoint JSON cho user, product, order và admin.
+- core chứa hàm dùng chung cho view và kiểm tra sản phẩm.
+- config và sql chứa cấu hình, xác thực, kết nối và schema dữ liệu.
+
+Thiết kế:
+- Dùng sơ đồ lớp hoặc sơ đồ thư mục.
+- Không gán cho dự án framework hoặc kiến trúc chưa được sử dụng.
+
+SLIDE 16 — CÔNG NGHỆ SỬ DỤNG
+
+Nội dung:
+- HTML xây dựng cấu trúc nội dung các trang.
+- CSS tạo giao diện, bố cục và khả năng hiển thị responsive.
+- JavaScript xử lý tương tác frontend và chuyển đổi giao diện sáng/tối.
+- PHP 8 xử lý router, trang, API và logic nghiệp vụ.
+- MySQL/MariaDB lưu trữ dữ liệu bằng bảng InnoDB.
+- PDO và prepared statements được sử dụng khi truy vấn dữ liệu.
+
+SLIDE 17 — MÔ HÌNH CƠ SỞ DỮ LIỆU
+
+Nội dung:
+- users lưu tài khoản người dùng.
+- admin_users lưu tài khoản quản trị.
+- products lưu SKU, slug, thông tin, giá, tồn kho, ảnh và tùy chọn màu.
+- orders lưu người đặt, thông tin nhận hàng, tổng tiền và trạng thái.
+- order_items lưu sản phẩm, giá, số lượng và màu tại thời điểm đặt.
+- Quan hệ chính: users 1–n orders; orders 1–n order_items; products 1–n order_items; admin_users 1–n products.
+
+Thiết kế:
+- Vẽ ERD đơn giản với năm bảng.
+- Chỉ hiển thị các trường tiêu biểu, không chép toàn bộ file SQL lên slide.
+
+SLIDE 18 — BẢO MẬT, KIỂM TRA DỮ LIỆU VÀ KẾT QUẢ
+
+Nội dung:
+- Prepared statements được dùng cho các truy vấn chính.
+- Mật khẩu được lưu bằng password hash và kiểm tra khi đăng nhập.
+- session_regenerate_id(true) được thực hiện sau khi đăng nhập.
+- require_user_page và require_admin_page kiểm soát truy cập theo vai trò.
+- Transaction và row lock bảo vệ tồn kho trong quá trình đặt hàng.
+- Dự án đã hoàn thiện luồng mua hàng, lịch sử đơn, CRUD sản phẩm và quản trị đơn hàng.
+
+Thiết kế:
+- Chia slide thành hai vùng: “Bảo mật và kiểm soát” và “Kết quả đã hoàn thành”.
+- Đây là slide cuối cùng của bài; không tạo thêm slide cảm ơn hoặc outro.
+
+5. YÊU CẦU VỀ NỘI DUNG SLIDE
+
+- Tiêu đề mỗi slide phải nói trực tiếp chủ đề của slide.
+- Bullet point phải ngắn, ưu tiên một dòng và không quá hai dòng.
+- Không lặp lại cùng một nội dung trên nhiều slide nếu không cần thiết.
+- Không dùng từ ngữ chung chung như “tối ưu toàn diện”, “bảo mật tuyệt đối” hoặc “hiệu suất vượt trội”.
+- Không thêm thanh toán trực tuyến, vận chuyển tích hợp, email tự động, đánh giá sản phẩm, voucher, chatbot, dashboard doanh thu hoặc triển khai cloud.
+- Không thêm framework như Laravel, React, Vue, Bootstrap hoặc Tailwind.
+- Không đưa tên đăng nhập, mật khẩu mẫu hoặc password hash lên slide.
+- Nếu cần ảnh giao diện thực tế, sử dụng ảnh chụp từ chính website STK Gears trong material được cung cấp.
+- Nếu không có ảnh phù hợp, dùng sơ đồ hoặc khối nội dung thay vì bịa thêm giao diện.
+
+6. YÊU CẦU ĐẦU RA
+
+- Xuất file PowerPoint có thể chỉnh sửa.
+- Toàn bộ chữ, hình, sơ đồ và biểu tượng phải nằm trong vùng an toàn của slide.
+- Không để tràn chữ, chồng chữ hoặc chữ quá nhỏ.
+- Bảo đảm dấu tiếng Việt hiển thị đúng.
+- Có thể thêm speaker notes ngắn để hỗ trợ thuyết trình, nhưng speaker notes cũng chỉ được dựa trên nội dung trong yêu cầu này.
+- Không tạo bất kỳ slide nào ngoài 18 slide đã mô tả.
