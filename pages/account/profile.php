@@ -23,7 +23,7 @@ $stats = account_statistics($isAdmin, current_user_id());
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css?v=20261019_9">
+  <link rel="stylesheet" href="./assets/styles.css?v=20261102_mobile1">
 </head>
 <body>
   <div class="topbar"><p>Hồ sơ tài khoản</p></div>
@@ -55,14 +55,14 @@ $stats = account_statistics($isAdmin, current_user_id());
           <p><strong>Số đơn hàng hợp lệ:</strong> <?= $stats['valid_orders'] ?></p>
           <p><strong>Số sản phẩm:</strong> <?= $stats['products'] ?></p>
           <p><strong>Tổng tồn kho:</strong> <?= $stats['total_stock'] ?></p>
-          <div class="stack" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+          <div class="stack profile-actions" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
             <a class="btn-secondary" href="./index.php?p=admin-products">Quản trị sản phẩm</a>
             <a class="btn-secondary" href="./index.php?p=admin-orders">Quản trị đơn hàng</a>
             <a class="btn-secondary" href="./index.php?p=logout">Đăng xuất</a>
           </div>
         <?php else: ?>
           <p><strong>Số đơn hàng của bạn:</strong> <?= $stats['my_orders'] ?></p>
-          <div class="stack" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+          <div class="stack profile-actions" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
             <a class="btn-secondary" href="./index.php?p=user-history">Lịch sử đơn hàng</a>
             <a class="btn-secondary" href="./index.php?p=user-password">Đổi mật khẩu</a>
             <a class="btn-secondary" href="./index.php?p=logout">Đăng xuất</a>
@@ -73,6 +73,7 @@ $stats = account_statistics($isAdmin, current_user_id());
   </main>
   <?php require __DIR__ . '/../../core/footer.php'; ?>
 
-  <script src="./assets/theme.js?v=20261001_1840"></script>
+  <script src="./assets/theme.js?v=20261102_mobile1"></script>
+  <script src="./assets/mobile.js?v=20261102_mobile1"></script>
 </body>
 </html>

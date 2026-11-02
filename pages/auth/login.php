@@ -16,7 +16,7 @@ $firebaseLogin = data_backend() === 'firebase';
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css?v=20261019_9">
+  <link rel="stylesheet" href="./assets/styles.css?v=20261102_mobile1">
 </head>
 <body class="auth-page">
   <div class="topbar"><p>STK Gears - Đăng nhập hệ thống</p></div>
@@ -107,7 +107,8 @@ $firebaseLogin = data_backend() === 'firebase';
   <script>
     window.__INITIAL_TAB__ = <?= json_encode($initialTab, JSON_UNESCAPED_UNICODE) ?>;
   </script>
-  <script src="./assets/theme.js?v=20261001_1840"></script>
+  <script src="./assets/theme.js?v=20261102_mobile1"></script>
+  <script src="./assets/mobile.js?v=20261102_mobile1"></script>
   <script src="./assets/login.js?v=20261001_1855"></script>
 </body>
 </html>

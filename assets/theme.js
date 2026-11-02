@@ -1,4 +1,4 @@
-﻿// Ghi chú: File script xử lý tương tác giao diện và gọi API.
+// Ghi chú: File script xử lý tương tác giao diện và gọi API.
 (function () {
   const KEY = "stkGearsTheme";
   const root = document.documentElement;
@@ -26,7 +26,10 @@
   // Hàm lấy theme đã lưu và khởi tạo giao diện ban đầu.
 
   function closeAllDropdowns() {
-    document.querySelectorAll(".nav-dropdown.open").forEach((el) => el.classList.remove("open"));
+    document.querySelectorAll(".nav-dropdown.open").forEach((el) => {
+      el.classList.remove("open");
+      el.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+    });
     openDropdown = null;
   }
   // Hàm đóng tất cả dropdown đang mở.
@@ -74,6 +77,7 @@
 
       let closeTimer = null;
       wrapper.addEventListener("mouseenter", function () {
+        if (window.matchMedia('(max-width: 760px), (hover: none)').matches) return;
         if (closeTimer) window.clearTimeout(closeTimer);
         closeAllDropdowns();
         wrapper.classList.add("open");
@@ -91,7 +95,7 @@
       trigger.addEventListener("click", function (event) {
         event.stopPropagation();
         const isTouchLike = window.matchMedia("(hover: none)").matches;
-        if (!isTouchLike) return;
+        if (!isTouchLike && !window.matchMedia('(max-width: 760px)').matches && event.detail !== 0) return;
         const willOpen = !wrapper.classList.contains("open");
         closeAllDropdowns();
         wrapper.classList.toggle("open", willOpen);
@@ -168,6 +172,7 @@
 
       let closeTimer = null;
       wrapper.addEventListener("mouseenter", function () {
+        if (window.matchMedia('(max-width: 760px), (hover: none)').matches) return;
         if (closeTimer) window.clearTimeout(closeTimer);
         closeAllDropdowns();
         wrapper.classList.add("open");
@@ -185,7 +190,8 @@
       trigger.addEventListener("click", function (event) {
         event.stopPropagation();
         const isTouchLike = window.matchMedia("(hover: none)").matches;
-        if (!isTouchLike) return;
+        if (!isTouchLike && !window.matchMedia('(max-width: 760px)').matches && event.detail !== 0) return;
+        event.preventDefault();
         const willOpen = !wrapper.classList.contains("open");
         closeAllDropdowns();
         wrapper.classList.toggle("open", willOpen);

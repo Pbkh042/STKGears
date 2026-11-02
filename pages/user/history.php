@@ -20,7 +20,7 @@ $orders = list_orders_user($userId);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css?v=20261020_1">
+  <link rel="stylesheet" href="./assets/styles.css?v=20261102_mobile1">
 </head>
 <body>
   <div class="topbar"><p>Xin chào, <?= esc($username) ?> | Lịch sử đơn hàng</p></div>
@@ -70,7 +70,8 @@ $orders = list_orders_user($userId);
     </section>
   </main>
   <?php require __DIR__ . '/../../core/footer.php'; ?>
-  <script src="./assets/theme.js?v=20261001_1840"></script>
+  <script src="./assets/theme.js?v=20261102_mobile1"></script>
+  <script src="./assets/mobile.js?v=20261102_mobile1"></script>
 </body>
 </html>
 

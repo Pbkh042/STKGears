@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/styles.css?v=20261019_11">
+  <link rel="stylesheet" href="./assets/styles.css?v=20261102_mobile1">
 </head>
 <body>
   <div class="topbar">
@@ -87,9 +87,9 @@
         <button id="closeCheckoutBtn" class="ghost">Đóng</button>
       </div>
       <form id="checkoutForm" class="checkout-form">
-        <input name="name" placeholder="Họ và tên" required>
-        <input name="phone" placeholder="Số điện thoại" required pattern="[0-9+ ]{8,15}">
-        <input name="address" placeholder="Địa chỉ nhận hàng" required>
+        <input name="name" placeholder="Họ và tên" aria-label="Họ và tên" autocomplete="name" required>
+        <input name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-label="Số điện thoại" placeholder="Số điện thoại" required pattern="[0-9+ ]{8,15}">
+        <input name="address" placeholder="Địa chỉ nhận hàng" aria-label="Địa chỉ nhận hàng" autocomplete="street-address" required>
         <textarea name="note" placeholder="Ghi chú đơn hàng (tuỳ chọn)"></textarea>
         <p id="checkoutInlineError" class="inline-error hidden" role="alert"></p>
         <button type="submit" class="btn-primary full">Xác nhận đặt hàng</button>
@@ -112,7 +112,8 @@
   </dialog>
 
   <div id="toast" class="toast" aria-live="polite"></div>
-  <script src="./assets/theme.js?v=20261001_1840"></script>
+  <script src="./assets/theme.js?v=20261102_mobile1"></script>
+  <script src="./assets/mobile.js?v=20261102_mobile1"></script>
   <script src="./assets/app.js?v=20261102_1"></script>
 </body>
 </html>
