@@ -3,11 +3,8 @@
 declare(strict_types=1);
 // Ghi chú: File xử lý logic/trang tương ứng của module.
 
-require_once __DIR__ . '/../config/database.php';
-
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+require_once __DIR__ . '/../config/session.php';
+app_start_session();
 
 header('Content-Type: application/json; charset=utf-8');
 
